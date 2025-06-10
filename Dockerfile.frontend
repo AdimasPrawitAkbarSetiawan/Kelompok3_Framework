@@ -1,0 +1,16 @@
+FROM node:18
+
+# Set working directory
+WORKDIR /app
+
+# Clone project dari GitHub
+RUN git clone https://github.com/EvalPutraParasdika/FrontEnd_Kelompok3.git .
+
+# Install dependencies
+RUN npm install
+
+# Expose port Vite dev server
+EXPOSE 5173
+
+# Jalankan Vite dev server
+CMD ["npm", "run", "dev", "--", "--host"]

@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: kelompok3-db
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: pengajuancuti
+    ports:
+      - "3306:3306"
+    volumes:
+      - kelompok3_framework_db_data:/var/lib/mysql
+    networks:
+      - appnet
+
+  backend:
+    build:
+      context: ..
+      dockerfile: kelompok3_Framework/Dockerfile.backend
+    container_name: kelompok3-backend
+    ports:
+      - "8000:80"
+    volumes:
+      - ./backend_kelompok3:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - appnet
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: kelompok3-frontend
+    ports:
+      - "3000:5173"
+    working_dir: /app
+    command: bash -c "npm install && npm run dev -- --host"
+    volumes:
+      - ../FrontEnd_Kelompok3:/app
+    depends_on:
+      - backend
+    networks:
+      - appnet
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: kelompok3-phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: ""
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - appnet
+
+volumes:
+  kelompok3_framework_db_data:
+
+networks:
+  appnet:
+    driver: bridge
