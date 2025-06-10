@@ -51,7 +51,7 @@ cd Kelompok3_Framework
 
 ### 2. Install Docker
 
-1. Kunjungi [Docker Desktop](https://www.docker.com/products/docker-desktop)
+1. Download Docker di link ini https://www.docker.com/products/docker-desktop
 2. Unduh & install untuk sistem operasi kamu (Windows/macOS)
 3. Jalankan Docker Desktop dan pastikan **statusnya running**
 
