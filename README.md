@@ -112,16 +112,14 @@ docker-compose up --build
 docker logs <nama-container>
 ```
 
----
-
 ## 📚 Informasi Tambahan Mengenai Docker, Laravel dan CodeIgniter
 
-* [Dokumentasi Docker](https://docs.docker.com/get-started/)
-* [Dokumentasi Laravel](https://laravel.com/docs)
-* [Dokumentasi CodeIgniter 4](https://codeigniter.com/user_guide/)
+* [Penjelasan Docker](https://docs.docker.com/get-started/)
+* [Penjelasan Laravel](https://laravel.com/docs)
+* [Penjelasan CodeIgniter 4](https://codeigniter.com/user_guide/)
 
 ---
 
-✅ Dengan mengikuti panduan ini, Kita dapat menjalankan seluruh sistem aplikasi berbasis framework secara otomatis, rapi, dan konsisten. DevOps bukan hanya alat, tetapi cara kerja kolaboratif antara developer dan system engineer.
+✅ Dengan mengikuti panduan ini, kita dapat menjalankan seluruh sistem aplikasi berbasis framework secara otomatis, rapi, dan konsisten. DevOps bukan hanya alat, tetapi cara kerja kolaboratif antara developer dan system engineer.
 
 📦 GitHub Repository: [AdimasPrawitAkbarSetiawan/Kelompok3\_Framework](https://github.com/AdimasPrawitAkbarSetiawan/Kelompok3_Framework)
