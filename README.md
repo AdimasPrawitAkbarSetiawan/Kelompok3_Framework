@@ -243,15 +243,6 @@ http {
 }
 ```
 
----
-
-## 🌐 Akses Aplikasi
-
-* **Frontend Laravel**: [http://localhost](http://localhost)
-* **PhpMyAdmin** *(jika ditambahkan)*: [http://localhost:8080](http://localhost:8080)
-
----
-
 ## 🛠️ DevOps Workflow dengan GitHub
 
 ### Push Project ke GitHub:
