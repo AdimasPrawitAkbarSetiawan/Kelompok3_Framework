@@ -8,55 +8,50 @@ Proyek ini adalah implementasi DevOps menggunakan Docker yang menggabungkan fron
 
 ⚡ Teknologi yang Digunakan
 
-Docker: Untuk menjalankan semua bagian aplikasi dalam container
+Docker: Platform container untuk menjalankan aplikasi
 
 Laravel: Framework PHP untuk frontend
 
 CodeIgniter 4 (CI4): Framework PHP untuk backend
 
-MySQL: Sistem manajemen database
+MySQL: Sistem manajemen database relasional
 
 NGINX: Web server dan reverse proxy
 
 📂 Struktur Direktori
 
 .
-├── backend/            # Folder berisi source code backend (CI4)
-│   ├── Dockerfile      # Instruksi build container backend
-│   └── .env          # Konfigurasi lingkungan backend
-├── frontend/           # Folder berisi source code frontend (Laravel)
-│   ├── Dockerfile      # Instruksi build container frontend
-│   └── .env          # Konfigurasi lingkungan frontend
-├── mysql-init/         # Inisialisasi awal untuk database
-│   └── db.sql         # Skrip SQL (jika ada)
-├── nginx/              # Konfigurasi untuk NGINX
-│   └── nginx.conf    # Konfigurasi reverse proxy
-├── docker-compose.yml  # File utama yang mengatur semua service
-└── README.md         # Dokumentasi proyek
+├── backend/            # Kode sumber backend (CI4)
+│   ├── Dockerfile      # Instruksi build backend
+│   └── .env            # Konfigurasi environment backend
+├── frontend/           # Kode sumber frontend (Laravel)
+│   ├── Dockerfile      # Instruksi build frontend
+│   └── .env            # Konfigurasi environment frontend
+├── mysql-init/         # Inisialisasi awal database
+│   └── db.sql          # Skrip SQL (opsional)
+├── nginx/              # Konfigurasi NGINX
+│   └── nginx.conf      # Reverse proxy configuration
+├── docker-compose.yml  # File utama untuk orkestrasi container
+└── README.md           # Dokumentasi proyek
 
 🚀 Langkah Eksekusi Proyek
 
 1. Clone Repository
 
-Clone seluruh struktur project ke dalam komputer lokal Anda:
-
-# Clone repository utama
-$ git clone https://github.com/AdimasPrawitAkbarSetiawan
-$ cd <nama-folder kalian, disini folderku nama nya kelompok-3-PBF>
+git clone https://github.com/AdimasPrawitAkbarSetiawan/Kelompok3_Framework.git
+cd Kelompok3_Framework
 
 2. Install Docker
 
-Jika belum memiliki Docker, ikuti langkah berikut:
+Kunjungi Docker Desktop
 
-Kunjungi https://www.docker.com/products/docker-desktop
-
-Download dan install Docker Desktop (Windows/macOS)
+Unduh & install untuk sistem operasi kamu (Windows/macOS)
 
 Jalankan Docker Desktop dan pastikan statusnya running
 
-3. Konfigurasi File
+3. Persiapkan Konfigurasi
 
-Pastikan struktur direktori Anda sesuai seperti yang dijelaskan di atas. Pastikan file berikut tersedia:
+Pastikan file berikut tersedia:
 
 frontend/.env
 
@@ -70,67 +65,88 @@ nginx/nginx.conf
 
 4. Jalankan Docker Compose
 
-Perintah ini akan membangun semua image dan menjalankan container:
-
 docker-compose up --build
 
-Jika ingin menjalankan di background:
+Atau di background:
 
 docker-compose up -d --build
 
-Docker akan secara otomatis:
+Docker akan:
 
-Build backend (CI4) dan frontend (Laravel)
+Build image frontend dan backend
 
 Menghubungkan ke database MySQL
 
-Menyediakan akses melalui NGINX di port 80
+Menyediakan akses ke aplikasi melalui NGINX
 
-📲 Akses Aplikasi
-
-Setelah semua container berjalan, buka browser dan akses:
+🌐 Akses Aplikasi
 
 Frontend Laravel: http://localhost
 
-PhpMyAdmin (opsional): http://localhost:8080
+PhpMyAdmin: http://localhost:8080
 
-Jika menggunakan port dev Vite (opsional): http://localhost:3000
+(Opsional) Dev Server Laravel Vite: http://localhost:3000
+
+🛠️ DevOps Workflow dengan GitHub
+
+GitHub digunakan untuk:
+
+Menyimpan source code proyek
+
+Berkolaborasi antar developer
+
+Menyimpan dokumentasi seperti README ini
+
+Cara Push Project ke GitHub:
+
+git init
+git remote add origin https://github.com/AdimasPrawitAkbarSetiawan/Kelompok3_Framework.git
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+
+Setiap update:
+
+git add .
+git commit -m "Update commit"
+git push
 
 ❓ Penjelasan Istilah
 
-Docker: Alat untuk menjalankan aplikasi dalam "container" terisolasi agar bisa berjalan konsisten di mana pun.
+Docker: Alat untuk membuat dan menjalankan aplikasi dalam container
 
-Container: Seperti mesin virtual ringan, tempat aplikasi dijalankan tanpa tergantung OS komputer lokal.
+Container: Unit terisolasi tempat aplikasi berjalan
 
-Dockerfile: File berisi instruksi cara membangun container.
+Dockerfile: File instruksi untuk membuat container image
 
-.env: File berisi pengaturan rahasia dan konfigurasi lingkungan.
+.env: File konfigurasi environment
 
-docker-compose.yml: File yang mengatur seluruh service/container dalam satu sistem.
+docker-compose.yml: File konfigurasi multi-container
 
-NGINX: Server yang bertugas sebagai perantara antara user dan aplikasi (reverse proxy).
+NGINX: Server untuk mengarahkan traffic ke frontend/backend
 
-🌟 Catatan Penting
+💡 Tips & Catatan
 
-Pastikan tidak ada port bentrok (misal 80, 3306, atau 5173 sudah dipakai program lain)
+Pastikan tidak ada port konflik seperti 80, 3306, atau 5173
 
-Jika ada perubahan pada source code atau konfigurasi, lakukan rebuild:
+Untuk memulai ulang dari awal:
 
 docker-compose down
 docker-compose up --build
 
-Untuk melihat log container:
+Untuk melihat log container tertentu:
 
 docker logs <nama-container>
 
-📄 Dokumentasi Tambahan
+📚 Dokumentasi Tambahan
 
-Kalau kalian baru mengenal DevOps atau Docker, disarankan membaca:
+Dokumentasi Docker
 
-https://docs.docker.com/get-started/
+Dokumentasi Laravel
 
-https://laravel.com/docs
+Dokumentasi CodeIgniter 4
 
-https://codeigniter.com/user_guide/
+✅ Dengan mengikuti panduan ini, Anda dapat menjalankan seluruh sistem aplikasi berbasis framework secara otomatis, rapi, dan konsisten. DevOps bukan hanya alat, tetapi cara kerja kolaboratif antara developer dan system engineer.
 
-✅ Dengan mengikuti panduan ini, Kalian bisa menjalankan seluruh sistem aplikasi berbasis framework secara otomatis, rapi, dan konsisten. DevOps bukan sekadar tools, tapi cara kerja yang menyatukan developer dan sistem engineer dalam satu ekosistem produktif.
+📦 GitHub Repository: AdimasPrawitAkbarSetiawan/Kelompok3_Framework
+
